@@ -20,7 +20,7 @@ public class TreeDiameter {
 		root.right.left= new Node(35);
 		root.right.right= new Node(49);
 		root.right.right.right= new Node(41);
-		System.out.println("I m ready with the tree");
+		System.out.println("I m ready with the tree test");
 		return root;
 	}
 
