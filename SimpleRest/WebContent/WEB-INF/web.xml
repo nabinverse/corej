@@ -2,6 +2,9 @@
 <web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<display-name>
 	RestWar</display-name>
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		</welcome-file-list>
@@ -22,7 +25,20 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+		<description>
+		Apache CXF Endpoint</description>
+		<display-name>cxf</display-name>
+		<servlet-name>cxf</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RestServlet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>cxf</servlet-name>
+		<url-pattern>
+		/services/*</url-pattern>
 	</servlet-mapping></web-app>
